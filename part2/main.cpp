@@ -5,7 +5,11 @@
 	displays unfinished puzzles to the screen
 */
 
+#include <isotream>
+
 int main(){
+
+	Puzzle<int> sudoku();
 
 	return 0;
 }
