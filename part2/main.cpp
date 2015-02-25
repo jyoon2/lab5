@@ -5,12 +5,21 @@
 	displays unfinished puzzles to the screen
 */
 
-#include <isotream>
+#include <iostream>
+#include <vector>
+#include <string>
+#include "puzzle.h"
+
+using namespace std;
 
 int main(){
-
-	Puzzle<int> sudoku();
-
+	string sudokuFile, wordokuFile; //filenames to be inputted
+	cout << "Please enter a file name(int): "; //ask for sudoku file
+	cin >> sudokuFile; //input to sudokoFile
+	Puzzle<int> sudoku(sudokuFile); //instantiate a Puzzle object of type int
+	cout << "Please enter a file name(char): "; //ask for wordoku file
+	cin >> wordokuFile; //input to wordokuFile
+	Puzzle<char> wordoku(wordokuFile); //instantiate a Puzzle object of type char
 	return 0;
 }
 
