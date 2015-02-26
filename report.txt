@@ -1,0 +1,71 @@
+Joseph Yoon, Lab 5 Report
+
+GitHub URL: https://github.com/jyoon2/lab5.git
+
+	This report is for part3 of Lab 5. The user uses the program by 
+executing the program main. If the main program is not there, then type make
+into the command line and press enter to compile all the files and create the
+executable. When the main program is run, the user will be prompted to input
+a file name for the text file of the sudoku board. The user must input the
+correct name, otherwise the program will not work. Once a correct input is
+provided, the user will be shown the board and also asked for the row and column
+of the number they would like to input. The three inputs will be checked in the
+program and if there is an overlap of the number in the row, column, or grid,
+or if the position is already occupied, then there will be a message to the
+user. If the number can be placed in that position with no problem, then there
+will be no message and only the board will show up again updated with the new
+number in the board. The user must input numbers for the row, column, and umber
+between 1-9 inclusive, otherwise a message will be displayed. If the user
+wants to quit the game, then they must hold CTRL+C or exit the terminal. There
+is no way of exiting the game except by winning. If the user completes the
+puzzle, then the game will end and the user will be displayed a congratulatory
+message.
+	The program works internally by templating a class called puzzle. A
+puzzle object is instantiated to take integers in the main.cpp. The user is
+asked for a filename and that filename is used as the argument for the puzzle
+object when it is constructed. In the constructor of the puzzle object, the
+file is read and the values are pushed onto a 2D vector to represent the board.
+The 2D vector is a private data member of the puzzle class is used throughout
+the class as the sudoku puzzle. After the puzzle object is created, then the
+user will be asked for inputs. The inputs will call the puzzle's play function
+which will be checking to see whether the user can actually place the number
+in the wanted position. The user will be continually asked for the row, column,
+and number until they win. If they don't win, then it will not stop. Before 
+asking for the inputs, the puzzle's print function is called so that the board
+will be displayed. The print function is made so that it not only prints the
+numbers in the board, but also provides numbers to easily locate the row and
+column for each number. The print function uses the brackets like a 2D array
+for the 2D vector. Once the play function is called, then it will check whether
+the inputs are valid. If the inputs are not valid, then the user will be
+notified and nothing will be checked. If the numbers are valid, then the rows,
+columns, and grids, will be checked as well as the position they want to input
+into. If there are any numbers already existing or if a number at the wanted 
+position is not empty, then a message will be displayed. A counting variable
+is used to check whether the number can be inputted. If there are no errors,
+then the number is inputted. The play function calls the puzzle's other defined
+functions of checkRow, checkColumn, and checkGrid. These are functions that will
+be checking to see each respective thing. The most confusing one would be the
+checkGrid as it uses the mod operator to determine which grid the number would
+be positioned in.
+	The program was verified by checking whether the inputs would be
+accepted by the program. First, I checked to see if the numbers were out of
+bounds of the wanted numbers, would the program stop. Then, checked to see
+if the program would find the duplicate number in the row, column, and grid.
+Then, I created a text file that had everything filled in except for one spot
+and inserted a number that would prove valid and finish the puzzle. Once the
+puzzle is finished, then there should be no more asking of inputs, and that
+worked and the congratulatory message was shown. Error messages are also shown
+each time there is a duplicate number in a certain area or if the position
+ was not available to be placed into. This helped with the verification of the
+program.
+	I think what worked well is templating the class so that it is able to
+take in different fundamental types because it's helpful in being able to take
+in different types. I didn't exactly like how the input didn't work for the 
+text file and had to use the c_str() function to make the input file read. The
+templated sudoku was implemented by creating a puzzle object that would take
+integers in the main program. The templated puzzle object would now be reading
+in integers and placing them into the 2D vector that would now be a 2D vector
+of integers since T was now defined as an integer for that object. This helped
+a lot since I could easily edit it to take in a char type.
+	
+
